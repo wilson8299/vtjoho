@@ -1,0 +1,37 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "baseUrl": ".",
+    "paths": {
+      "@/components/*": ["components/*"],
+      "@/components*": ["components"],
+      "@/store/*": ["store/*"],
+      "@/store*": ["store"],
+      "@/types/*": ["types/*"],
+      "@/types*": ["types"],
+      "@/styles/*": ["styles/*"],
+      "@/styles*": ["styles"],
+      "@/query/*": ["query/*"],
+      "@/query*": ["query"],
+      "@/utils/*": ["utils/*"],
+      "@/utils*": ["utils"],
+      "@/pages/*": ["pages/*"],
+      "@/pages*": ["pages"]
+    }
+  },
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "utils/supabaseClient.js"],
+  "exclude": ["node_modules"]
+}
