@@ -1,6 +1,7 @@
 /* eslint-disable react/display-name */
 import debounce from "lodash/debounce";
 import Skeleton from "react-loading-skeleton";
+import Head from "next/head";
 import { VirtuosoGrid, GridItemProps, GridListProps } from "react-virtuoso";
 import { useCallback, useEffect, useRef, useState } from "react";
 import { createServerSupabaseClient } from "@supabase/auth-helpers-nextjs";
@@ -104,24 +105,30 @@ const Member: React.FC<IBaseProps> = ({ userId, agency, selectedAgencyName }) =>
     );
 
     return (
-      <VirtuosoGrid
-        customScrollParent={customScrollParent.current!}
-        data={filter(membersData?.filter((member) => !member.official))}
-        components={{
-          List: ListContainer,
-          Item: ItemContainer,
-        }}
-        itemContent={(index, member) => (
-          <MemberCard
-            key={member.id}
-            {...member}
-            userId={userId}
-            favoriteData={favoriteData}
-            isFavorite={favoriteData!.favorite.indexOf(member.id) > -1}
-          />
-        )}
-        style={{ height: "100%", width: "100%" }}
-      />
+      <>
+        <Head>
+          <title>VTJoho - member</title>
+          <meta httpEquiv="cache-control" content="no-cache"></meta>
+        </Head>
+        <VirtuosoGrid
+          customScrollParent={customScrollParent.current!}
+          data={filter(membersData?.filter((member) => !member.official))}
+          components={{
+            List: ListContainer,
+            Item: ItemContainer,
+          }}
+          itemContent={(index, member) => (
+            <MemberCard
+              key={member.id}
+              {...member}
+              userId={userId}
+              favoriteData={favoriteData}
+              isFavorite={favoriteData!.favorite.indexOf(member.id) > -1}
+            />
+          )}
+          style={{ height: "100%", width: "100%" }}
+        />
+      </>
     );
   };
 

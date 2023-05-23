@@ -9,7 +9,6 @@ import { supabase } from "@/query/supabaseClient";
 import { Layout } from "@/components";
 import "../styles/globals.css";
 import "react-toastify/dist/ReactToastify.css";
-import { Suspense } from "react";
 
 type NextPageWithLayout<P = {}, IP = P> = NextPage<P, IP> & {
   getLayout?: (page: React.ReactElement) => React.ReactNode;
@@ -48,9 +47,7 @@ function App({ Component, pageProps }: AppPropsWithLayout) {
             <ThemeProvider attribute="class" defaultTheme="dark">
               <NextNProgress height={5} options={{ showSpinner: false }} />
               <Layout>
-                <Suspense fallback={<div style={{ color: "red" }}>123</div>}>
-                  <Component {...pageProps} />
-                </Suspense>
+                <Component {...pageProps} />
               </Layout>
             </ThemeProvider>
           </FontFamily>

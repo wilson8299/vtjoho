@@ -1,4 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
+import Head from "next/head";
 import Skeleton from "react-loading-skeleton";
 import { useEffect, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
@@ -99,27 +100,32 @@ const Favotrite: React.FC<IBaseProps> = ({ userId, favorite }) => {
   };
 
   return (
-    <div className="h-full overflow-y-scroll bg-light-100 dark:bg-dark-100">
-      <section className="container m-auto flex items-center justify-end gap-2 py-3 pr-2">
-        <GiHamburgerMenu
-          className={`${
-            !isListStyle && "hidden"
-          } cursor-pointer text-3xl text-primary transition-[color] duration-150 ease-in-out`}
-          onClick={listStyleClick}
-        />
-        <BsGridFill
-          className={`${
-            isListStyle && "hidden"
-          } cursor-pointer text-3xl text-primary transition-[color] duration-150 ease-in-out`}
-          onClick={listStyleClick}
-        />
-      </section>
-      <section className="container relative m-auto h-[calc(100%-54px)]">
-        <div className="absolute inset-0 bg-light-100 dark:bg-dark-100 ">
-          {liveDataIsLoading ? LoadingElement() : LiveScheduleElement(today)}
-        </div>
-      </section>
-    </div>
+    <>
+      <Head>
+        <title>VTJoho - favorite</title>
+      </Head>
+      <div className="h-full overflow-y-scroll bg-light-100 dark:bg-dark-100">
+        <section className="container m-auto flex items-center justify-end gap-2 py-3 pr-2">
+          <GiHamburgerMenu
+            className={`${
+              !isListStyle && "hidden"
+            } cursor-pointer text-3xl text-primary transition-[color] duration-150 ease-in-out`}
+            onClick={listStyleClick}
+          />
+          <BsGridFill
+            className={`${
+              isListStyle && "hidden"
+            } cursor-pointer text-3xl text-primary transition-[color] duration-150 ease-in-out`}
+            onClick={listStyleClick}
+          />
+        </section>
+        <section className="container relative m-auto h-[calc(100%-54px)]">
+          <div className="absolute inset-0 bg-light-100 dark:bg-dark-100 ">
+            {liveDataIsLoading ? LoadingElement() : LiveScheduleElement(today)}
+          </div>
+        </section>
+      </div>
+    </>
   );
 };
 

@@ -79,6 +79,7 @@ const Watch: React.FC<IBaseProps> = ({ videoId, videoData, userId }) => {
   return (
     <>
       <Head>
+        <title>VTJoho - {data?.videoInfo.title}</title>
         <meta httpEquiv="cache-control" content="no-cache"></meta>
       </Head>
       <div className="flex h-full w-full flex-col sm:flex-row">
