@@ -1,0 +1,8 @@
+.react-grid-item.react-grid-placeholder {
+  background: white !important;
+}
+
+.react-resizable-handle.react-resizable-handle-se {
+  z-index: 999 !important;
+  opacity: 0;
+}
